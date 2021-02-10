@@ -7,6 +7,8 @@ import {
 import Footer from './componentes/footerComponente/footer.js'
 import './App.scss';
 import { Dashboard } from "./dashboardView/dashboard.js";
+// Importando componentes
+import Directory from "./views/Directory/Directory";
 import firebase from 'firebase/app'
 
 var firebaseConfig = {
@@ -20,8 +22,7 @@ var firebaseConfig = {
 // Inicia Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Importando componentes
-import Directory from "./views/Directory/Directory";
+
 
 export default function App() {
   return (
