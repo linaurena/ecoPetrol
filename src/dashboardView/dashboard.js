@@ -4,11 +4,24 @@ import image from '../img/Karla.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import CardPost from '../componentes/cardPostComponent/cardPost'
+import ModalPost from '../componentes/modalPost/modalPost'
 
 export class Dashboard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          redirect: false,
+          isVisible: false
+        };
+    }
+
     render() {
       return (
         <div className="mainDiv">
+            <ModalPost
+                isVisible={this.state.isVisible}
+                cancelAction={()=>this.setState({isVisible: false})}
+            />
             <div className="userInfo">
                 <div className="photo">
                     <div className="circleImg">
@@ -25,7 +38,7 @@ export class Dashboard extends React.Component {
                 </div>
             </div>
             <div className="createPostButton">
-                <button className="postButton">
+                <button className="postButton" onClick={()=>this.setState({isVisible: true})}>
                     Crea un post
                     <FontAwesomeIcon icon={faPen} className="iconPen"/>
                 </button>

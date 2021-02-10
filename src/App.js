@@ -7,7 +7,18 @@ import {
 import Footer from './componentes/footerComponente/footer.js'
 import './App.scss';
 import { Dashboard } from "./dashboardView/dashboard.js";
+import firebase from 'firebase/app'
 
+var firebaseConfig = {
+  apiKey: "AIzaSyB97MFDk0wRoFav5TnoI6OOYdsWYmt7ZIQ",
+  authDomain: "ecopetrol-tf.firebaseapp.com",
+  projectId: "ecopetrol-tf",
+  storageBucket: "ecopetrol-tf.appspot.com",
+  messagingSenderId: "488819244820",
+  appId: "1:488819244820:web:9e396db99bd0be01348c01"
+};
+// Inicia Firebase
+firebase.initializeApp(firebaseConfig);
 
 
 export default function App() {
