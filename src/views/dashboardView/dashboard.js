@@ -1,10 +1,10 @@
 import React from "react";
 import './dashboard.scss';
-import image from '../img/Karla.png';
+import image from '../../img/Karla.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
-import CardPost from '../componentes/cardPostComponent/cardPost'
-import ModalPost from '../componentes/modalPost/modalPost'
+import CardPost from '../../componentes/cardPostComponent/cardPost'
+import ModalPost from '../../componentes/modalPost/modalPost'
 
 export class Dashboard extends React.Component {
     constructor(props) {

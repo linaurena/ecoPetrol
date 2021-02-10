@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Footer from './componentes/footerComponente/footer.js'
 import './App.scss';
-import { Dashboard } from "./dashboardView/dashboard.js";
+import { Dashboard } from "./views/dashboardView/dashboard.js";
 // Importando componentes
 import Directory from "./views/Directory/Directory";
 import firebase from 'firebase/app'
