@@ -20,33 +20,39 @@ var firebaseConfig = {
 // Inicia Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Importando componentes
+import Directory from "./views/Directory/Directory";
 
 export default function App() {
   return (
     <Router>
-      <div>
-        
-
-        {/* A <Switch> looks through its children <Route>s and
+      {/* <div> */}
+      {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/dashboard">
+      <Switch>
+        <Route path="/directorio">
+          <Directory />
+        </Route>
+        <Route path="/dashboard">
             <DashboardView />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+        </Route>
+        <Route path="/">
+          {/* <Home /> */}
+          <h1>en home</h1>
+        </Route>
+
+      </Switch>
+      {/* </div> */}
     </Router>
   );
 }
 
-function Home() {
-  return (
-    <div></div>
-  );
-}
+
+// function Home() {
+//   return (
+//     < />
+//   );
+// }
 
 function DashboardView() {
   return (
