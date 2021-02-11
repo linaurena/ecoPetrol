@@ -1,5 +1,6 @@
 import './modalPost.scss';
 import Modal from 'react-modal';
+import firebase from 'firebase';
 
 const customStyles = {
     content : {
@@ -13,14 +14,29 @@ const customStyles = {
   };
 
 function ModalPost(props) {
-    var bodyText
+    var bodyText = null
     function handleChange(text){
         //console.log(text.target.value)
         bodyText = text.target.value
     }
 
     function sendToFirebase(){
-        //firebase.firestore().collection("pedidos").set(data)
+        if (bodyText)
+        {
+            firebase.firestore().collection("post").doc().set({
+                createdAt: new Date(),
+                message: bodyText,
+                picture: null,
+                likes: [],
+                comments: [],
+                user: "9oNLbuZCjTTZtt83OSaQ"
+            }).then((response)=>{
+                props.publishAction()
+            })
+        }
+        else{
+            alert("se debe colocar un mensaje")
+        }
     }
 
     return (
