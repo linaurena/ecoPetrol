@@ -24,7 +24,7 @@ function NavBar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/directorio">
+                        <Link to="/dashboard">
                             <div className="nav-bar-item">
                                 <i className="fas fa-address-book"></i>
                                 <p className="title-nav-bar">Muro</p>

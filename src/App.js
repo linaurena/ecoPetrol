@@ -10,6 +10,7 @@ import { Dashboard } from "./views/dashboardView/dashboard.js";
 // Importando componentes
 import Directory from "./views/Directory/Directory";
 import firebase from 'firebase/app'
+import NavBar from './componentes/navBar/NavBar'
 
 var firebaseConfig = {
   apiKey: "AIzaSyB97MFDk0wRoFav5TnoI6OOYdsWYmt7ZIQ",
@@ -57,6 +58,9 @@ export default function App() {
 
 function DashboardView() {
   return (
-    <Dashboard/>
+    <div>
+      <Dashboard/>
+      <NavBar/>
+    </div>
   );
 }
