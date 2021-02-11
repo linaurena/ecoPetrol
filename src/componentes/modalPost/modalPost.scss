@@ -77,3 +77,13 @@
     width: 100px;
     border-color: #CCD32A;
 }
+
+.imageBlock{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.placeholderImage{
+    margin-left: 10px;
+}

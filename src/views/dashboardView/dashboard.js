@@ -132,13 +132,20 @@ export class Dashboard extends React.Component {
         
     }
 
+    cancelAction(){
+        this.setState({
+            isVisible: false
+        })
+    }
+
     render() {
       return (
         <div className="mainDiv">
             <ModalPost
                 isVisible={this.state.isVisible}
-                cancelAction={()=>this.setState({isVisible: false})}
+                cancelAction={()=>this.cancelAction()}
                 publishAction={()=>this.publishAction()}
+                UID={this.state.uid}
             />
             <div className="userInfo">
                 <div className="photo">
@@ -176,6 +183,7 @@ export class Dashboard extends React.Component {
                                 numberLikes={post.likesNumbers}
                                 commentAction={()=>alert("Comment")}
                                 numberComments={post.commentNumbers}
+                                picture={post.picture}
                             />
                         )
                     }, this)
