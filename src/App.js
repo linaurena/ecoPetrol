@@ -36,9 +36,7 @@ export default function App() {
         <Route path="/dashboard">
             <DashboardView />
         </Route>
-        <Route path="/">
-          {/* <Home /> */}
-          <h1>en home</h1>
+        <Route path="/chat">
         </Route>
 
       </Switch>
