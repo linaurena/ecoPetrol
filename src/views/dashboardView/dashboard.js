@@ -7,6 +7,7 @@ import CardPost from '../../componentes/cardPostComponent/cardPost'
 import ModalPost from '../../componentes/modalPost/modalPost'
 import ModalComment from '../../componentes/modalComment/modalComment'
 import firebase from 'firebase';
+import {useHistory} from 'react-router-dom';
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
 export class Dashboard extends React.Component {
@@ -21,6 +22,8 @@ export class Dashboard extends React.Component {
           postID: false,
           comments: []
         };
+
+        
     }
 
     componentDidMount(){

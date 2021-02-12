@@ -2,23 +2,53 @@ import React from "react";
 import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 import firebase from 'firebase';
 import image from '../../img/Karla.png';
+import { Redirect } from 'react-router-dom';
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          uid: "9oNLbuZCjTTZtt83OSaQ"
+          uid: "9oNLbuZCjTTZtt83OSaQ",
+          redirect: false,
+          image: null,
+          status: "",
+          fullname: "",
+          ocupation: ""
         };
     }
 
+    componentDidMount(){
+        firebase.firestore().collection("users").doc(this.state.uid).get()
+        .then((userData)=>{
+            this.setState({
+                image: userData.data().photo,
+                status: userData.data().statusUser,
+                fullname: userData.data().name + " "+ userData.data().lastName,
+                ocupation: userData.data().occupation
+            })
+        })
+    }
+
+    backAction(){
+        this.context.router.history.goBack()
+    }
+
+    goEditPerfil(){
+
+    }
+
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
       return (
         <div className="mainDiv">
             <div className="backBox">
-                <FontAwesomeIcon icon={faArrowLeft} className="back" onClick={()=>alert('back')}/>
+                <FontAwesomeIcon icon={faArrowLeft} className="back" onClick={()=>this.backAction()}/>
             </div>
             <div className="titleProfile">
                 <p className="titleProfile">Perfil</p>
@@ -26,18 +56,24 @@ export default class Profile extends React.Component {
             <div className="profilePicDiv">
                 <div className="photoProfile">
                     <div className="circleImgProfile">
-                        <img src= {image} alt ="" className="userImgProfile"/>
+                        <img src= {this.state.image} alt ="" className="userImgProfile"/>
                     </div>
                 </div>
                 <div className="typePerfil">
-                    <p className="textType">Egresada</p>
+                    <p className="textType">{this.state.status}</p>
                 </div>
             </div>
             <div className="profileNameDiv">
-                <p className="profileName">Karla Guaita</p>
+                <p className="profileName">{this.state.fullname}</p>
             </div>
             <div className="profileSpecialityDiv">
-                <p className="profileSpeciality">Front-End</p>
+                <p className="profileSpeciality">{this.state.ocupation}</p>
+            </div>
+            <div className="boxButtonProfile">
+                <button className="postButton" onClick={()=>this.goEditPerfil()}>
+                    Editar Perfil
+                    <FontAwesomeIcon icon={faPen} className="iconPen"/>
+                </button>
             </div>
         </div>
       )

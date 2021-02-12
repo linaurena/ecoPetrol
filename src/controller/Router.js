@@ -15,7 +15,7 @@ const Router = () => {
           <Route exact path='/'>
             <Home windowchoose='Register' hash='/'/>
           </Route>
-          <Route path='/perfil' component={UserProfile}/>
+          <Route path='/perfil' component={ProfileView}/>
           <Route exact path='/dashboard' component={DashboardView}/>
           <Route exact path='/directorio' component={Directory}/>
         </Switch>
@@ -27,6 +27,15 @@ function DashboardView() {
   return (
     <div>
       <Dashboard/>
+      <NavBar/>
+    </div>
+  )
+}
+
+function ProfileView() {
+  return (
+    <div>
+      <Profile/>
       <NavBar/>
     </div>
   )
