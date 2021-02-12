@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import Footer from './componentes/footerComponente/footer.js'
+import Router from './controller/Router';
+import {AuthContextProvider} from './controller/AuthContext';
 import './App.scss';
-import { Dashboard } from "./views/dashboardView/dashboard.js";
+//import Onboarding from "./views/Onboarding/LogInForm";
+//import { Dashboard } from "./views/dashboardView/dashboard.js";
 // Importando componentes
 import Directory from "./views/Directory/Directory";
 import NavBar from './componentes/navBar/NavBar';
@@ -24,54 +21,18 @@ import Profile from './views/profileView/profile'
 // Inicia Firebase
 // firebase.initializeApp(firebaseConfig);
 
-export default function App() {
-  return (
-    <Router>
-      {/* <div> */}
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      <Switch>
-        <Route path="/profile">
-            <PerfilView />
-        </Route>
-        <Route path="/directorio">
-          <Directory />
-        </Route>
-        <Route path="/dashboard">
-            <DashboardView />
-        </Route>
-        <Route path="/">
-          {/* <Home /> */}
-          <h1>en home</h1>
-        </Route>
 
-      </Switch>
-      {/* </div> */}
-    </Router>
+
+
+function App() {
+
+  return (
+    <AuthContextProvider>
+      <div>
+        <Router/>
+      </div>
+    </AuthContextProvider>
   );
 }
 
-
-// function Home() {
-//   return (
-//     < />
-//   );
-// }
-
-function PerfilView() {
-  return (
-    <div>
-      <Profile/>
-      <NavBar/>
-    </div>
-  );
-}
-
-function DashboardView() {
-  return (
-    <div>
-      <Dashboard/>
-      <NavBar/>
-    </div>
-  );
-}
+export default App;
