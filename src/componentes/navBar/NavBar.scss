@@ -8,8 +8,9 @@
         width: 100%;
     }
     ul {
-        transform: translateY(-15px);
+        transform: translateX(15px);
         justify-content: space-around;
+        // text-align: center;
     }
     li {
         list-style: none;
@@ -20,6 +21,8 @@
     a{
         text-decoration: none;
     }
+    position: fixed;
+    bottom: 0px;
 }
 
 .nav-bar-item {
@@ -27,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     width: 80px;
+    margin-right: 10px;
     .icon-nav {
         width: 45px;
         height: 45px;
@@ -34,7 +38,17 @@
     .title-nav-bar {
         margin: 0;
         font-size: 14px;
-        color: #403833;
+        // color: #403833;
         font-weight: bold;
     }
   }
+
+  .fas::before{
+        color: #403833;
+        font-size: 30px;
+  }
+
+  .selected {
+    color:#FF5F00;
+  }
+

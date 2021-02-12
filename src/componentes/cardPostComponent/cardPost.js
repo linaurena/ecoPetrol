@@ -23,7 +23,16 @@ function CardPost(props) {
             </div>
         </div>
         <div className="userBody">
-            <p className="bodyPost">{props.bodyText}</p>
+            {
+                props.bodyText &&
+                <p className="bodyPost">{props.bodyText}</p>
+            }
+            {
+                props.picture &&
+                <div className="bodyPic">
+                    <img src={props.picture} className="picture"/>
+                </div>
+            }
         </div>
         <div className="userComment">
             <div className="likesView">
