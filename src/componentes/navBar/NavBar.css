@@ -22,6 +22,8 @@
 }
 
 .nav-bar ul {
+  -webkit-transform: translateX(15px);
+          transform: translateX(15px);
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-top: 8px;
