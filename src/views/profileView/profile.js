@@ -1,7 +1,7 @@
 import React from "react";
 import './profile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import firebase from 'firebase';
 import { Redirect } from 'react-router-dom';
@@ -55,7 +55,7 @@ export default class Profile extends React.Component {
             <div className="backBox">
                 <FontAwesomeIcon icon={faArrowLeft} className="back" onClick={()=>this.backAction()}/>
             </div>
-            <div className="titleProfileContainer">
+            <div className="titleProfile">
                 <p className="titleProfile">Perfil</p>
             </div>
             <div className="profilePicDiv">

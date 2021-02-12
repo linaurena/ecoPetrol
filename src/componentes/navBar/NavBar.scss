@@ -1,27 +1,23 @@
 .nav-bar {
     width: 100%;
-    height: 85px;
+    height: 60px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-flow: row nowrap;
+    background-color: #CCD32A;
     nav {
-        z-index: 1;
         width: 100%;
-        height: 60px;
-        background-color: #CCD32A;
-        justify-content: space-around;
     }
     ul {
         transform: translateX(15px);
         justify-content: space-around;
-        margin-top: 8px;
+        transform: translate(-20px, -15px);
         // text-align: center;
     }
     li {
         list-style: none;
         // border: 2px solid #2e1696;
         display: inline-block;
-        width: 33.33%;
-        flex-wrap: nowrap;
+        margin: 10px;
     }
     a{
         text-decoration: none;
@@ -34,7 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80px;
     margin-right: 10px;
     .icon-nav {
         width: 45px;
@@ -54,19 +50,13 @@
   }
 
   .circulo {
-        background-color: #CCD32A;
-        border-radius: 85px;
-        width: 85px;
-        height: 85px;
-        display: block;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        position: absolute;
-        top: 0px;
-        
+        background-color: burlywood;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        bottom: 50px;
+        right: 700px;
   }
 
   .selected {

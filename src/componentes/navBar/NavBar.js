@@ -12,7 +12,6 @@ import './NavBar.scss';
 function NavBar() {
     return (
         <div className="nav-bar">
-            <div className="circulo"></div>
             <nav>
                 <ul>
                     <li>
@@ -41,6 +40,7 @@ function NavBar() {
                     </li>
                 </ul>
             </nav>
+            {/* <div className="circulo"></div> */}
         </div>
     )
 }

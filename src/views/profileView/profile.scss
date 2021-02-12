@@ -15,22 +15,21 @@
     margin-left: 20px;
 }
 
-.titleProfileContainer{
+.titleProfile{
     height: 40px;
     display: flex;
     align-items: center;
-    margin-left: 11vw;
-    margin-bottom: 6.2vh;
 }
 
 .titleProfile{
-    font-size: 44px;
+    font-size: 28px;
     font-weight: bold;
     color: #5C5A5A;
+    margin-left: 20px;
 }
 
 .profilePicDiv{
-    height: 177px;
+    height: 140px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -38,29 +37,29 @@
 }
 
 .photoProfile{
-    height: 177px;
-    width: 177px;
+    height: 120px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .circleImgProfile{
-    height: 177px;
-    width: 177px;
+    height: 120px;
+    width: 120px;
     border-radius: 60px;
     display: flex;
     justify-content: center;
 }
 
 .userImgProfile{
-    height: 177px;
-    width:177px;
-    border-radius: 170px;
+    height: 120px;
+    width: 120px;
+    border-radius: 60px;
 }
 
 .typePerfil{
-    height: 24px;
+    height: 20px;
     width:120px;
     margin-top: -15px;
     background-color: #CCD32A;
@@ -68,28 +67,21 @@
 }
 
 .textType{
-    font-size: 17px;
+    margin-top: -2px;
     text-align: center;
-    text-transform: lowercase;
-}
-
-.textType::first-letter{
-    text-transform: uppercase;
 }
 
 .profileNameDiv{
     height: 40px;
     display: flex;
     justify-content: center;
-    align-items: center;    
-    text-transform: capitalize;
+    align-items: center;
 }
 
 .profileName{
     color: #5C5A5A;
-    font-size: px;
+    font-size: 16px;
     font-weight: bold;
-    margin-top: 4vh;
 }
 
 .profileSpecialityDiv{
@@ -97,7 +89,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2vh;
 }
 
 .profileSpeciality{
