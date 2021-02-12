@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // estilos del componente
 import './Search.scss';
 
 
-function Search() {
+const Search = ({ dataUsers, setDataUsers, dataIn, setDataIn }) => {
+
+    const handleInputChange = (e) => {
+        let a = e.target.value;
+        if (a.length > 5) {
+            setDataIn(a)
+            filterData(dataIn)
+        }
+    };
+
+    const filterData = (data) => {
+        console.log(data);
+        console.log(dataUsers);
+        let newData = [];
+        const a = dataUsers.filter((el) => {
+            if (el.name.toLowerCase() === data.toLowerCase() || el.lastName.toLowerCase() === data.toLowerCase() || el.statusUser.toLowerCase() === data.toLowerCase()) {
+                newData = [...newData, el];
+                setDataUsers(newData);
+            }
+        })
+    }
+
     return (
         <div className="bar-search">
-            <input placeholder="Buscar"></input>
-            <i class="fas fa-search"></i>
+            <input placeholder="Buscar" onChange={handleInputChange} ></input>
+            <i className="fas fa-search"></i>
         </div>
-
     )
 }
 

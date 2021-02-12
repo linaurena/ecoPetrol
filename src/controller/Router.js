@@ -6,6 +6,7 @@ import Directory from "../views/Directory/Directory";
 import NavBar from '../componentes/navBar/NavBar';
 import Profile from '../views/profileView/profile';
 import { Dashboard } from "../views/dashboardView/dashboard.js";
+import Chat from "../views/chat/Chat.js";
 // import Error404 from '../views/Error404';
 
 const Router = () => {
@@ -18,6 +19,7 @@ const Router = () => {
           <Route path='/perfil' component={ProfileView}/>
           <Route exact path='/dashboard' component={DashboardView}/>
           <Route exact path='/directorio' component={Directory}/>
+          <Route exact path='/chat' component={Chat}/>
         </Switch>
       </BrowserRouter>
     )
