@@ -28,6 +28,7 @@
         margin-bottom: 0;
         h3 {
             margin: 0;
+            font-size: 16px;
         } 
     }
     .occupationUser {
@@ -48,16 +49,22 @@
     text-align: center;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    font-weight: bold;
 }
 
 .ecopetrol {
     @include status;
-    background-color: #00214D;
+    background-color: #004236;
     color: white;
    
 }
 .egresado {
     background-color: #CCD32A;
+    @include status;
+   
+}
+.activo {
+    background-color: #F7DB17;
     @include status;
    
 }

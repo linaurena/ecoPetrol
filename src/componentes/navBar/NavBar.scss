@@ -8,8 +8,10 @@
         width: 100%;
     }
     ul {
-        transform: translateY(-15px);
+        // transform: translateY(-15px);
         justify-content: space-around;
+        transform: translate(-20px, -15px);
+        // text-align: center;
     }
     li {
         list-style: none;
@@ -29,6 +31,7 @@
     flex-direction: column;
     align-items: center;
     width: 80px;
+    margin-right: 10px;
     .icon-nav {
         width: 45px;
         height: 45px;
@@ -36,7 +39,27 @@
     .title-nav-bar {
         margin: 0;
         font-size: 14px;
-        color: #403833;
+        // color: #403833;
         font-weight: bold;
     }
   }
+
+  .fas::before{
+        color: #403833;
+        font-size: 30px;
+  }
+
+  .circulo {
+        background-color: burlywood;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        bottom: 50px;
+        right: 700px;
+  }
+
+  .selected {
+    color:#FF5F00;
+  }
+

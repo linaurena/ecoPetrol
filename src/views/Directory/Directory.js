@@ -2,7 +2,7 @@
 // estilos del componente
 import './Directory.scss';
 
-import React, { useEffect, useState }  from 'react'
+import React, { useEffect, useState } from 'react'
 import CardUser from '../../componentes/cardUser/CardUser';
 import NavBar from '../../componentes/navBar/NavBar'
 
@@ -14,6 +14,8 @@ import firestore from '../../controller/firestore';
 // Función principal
 const Directory = () => {
     const [dataUsers, setDataUsers] = useState([]);
+
+    const [dataIn, setDataIn] = useState("");
 
     const readUsers = () => {
         firestore.getUsers((listUsers) => {
@@ -28,22 +30,22 @@ const Directory = () => {
 
     return (
         <div className="container-directory">
-            <h2>Directorio</h2>
-            <Search />
-            {/* <div className="container-cards">
-                <CardUser data={dataUser} />
-            </div> */}
-
-            <div>
-                {dataUsers.map((user, index) => {
-                    return(<p>{user.name}</p>)
-                    
-
-                })
-            }
-
+            <div className="head-directory">
+                <h2>Directorio</h2>
             </div>
-            <NavBar/>
+            <div className="bar-head">
+                <Search
+                 dataUsers = {dataUsers}
+                 setDataUsers = {setDataUsers}
+                 dataIn={dataIn}
+                 setDataIn={setDataIn}
+                 />
+            </div>
+
+            <div className="container-cards">
+                <CardUser data={dataUsers} />
+            </div>
+            <NavBar />
         </div>
     )
 }
