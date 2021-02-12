@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import CardPost from '../../componentes/cardPostComponent/cardPost'
 import ModalPost from '../../componentes/modalPost/modalPost'
+import ModalComment from '../../componentes/modalComment/modalComment'
 import firebase from 'firebase';
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
@@ -15,7 +16,10 @@ export class Dashboard extends React.Component {
           redirect: false,
           isVisible: false,
           post: [],
-          uid: "9oNLbuZCjTTZtt83OSaQ"
+          uid: "9oNLbuZCjTTZtt83OSaQ",
+          isVisibleComment: false,
+          postID: false,
+          comments: []
         };
     }
 
@@ -83,7 +87,10 @@ export class Dashboard extends React.Component {
 
     publishAction(){
         this.getPost()
-        this.setState({isVisible: false})
+        this.setState({
+            isVisible: false,
+            isVisibleComment: false
+        })
     }
 
     likeAction(ID){
@@ -134,8 +141,41 @@ export class Dashboard extends React.Component {
 
     cancelAction(){
         this.setState({
-            isVisible: false
+            isVisible: false,
+            isVisibleComment: false
         })
+    }
+
+    async commentAction(ID){
+        let promises = [];
+        let aux_comments = []
+        await firebase.firestore().collection("post").doc(ID).get()
+        .then(async (post)=>{
+            await post.data().comments.forEach(doc => {
+                promises.push(
+                    firebase.firestore().collection("users").doc(doc.user).get()
+                        .then((userData)=>{
+                            aux_comments.push({
+                                image: userData.data().photo,
+                                text: doc.comment
+                            })
+                        })
+                )
+            });
+        })
+    
+        Promise.all(promises).then(() => 
+        this.setState({postID: ID, comments: aux_comments}, ()=>{
+            //this.RefComment.setComment(aux_comments)
+            //this.child.setState({ comment: c })
+            console.log(this.state.comments[0])
+            this.setState({
+                isVisibleComment: true,
+            })
+        })
+        );
+        
+        
     }
 
     render() {
@@ -146,6 +186,14 @@ export class Dashboard extends React.Component {
                 cancelAction={()=>this.cancelAction()}
                 publishAction={()=>this.publishAction()}
                 UID={this.state.uid}
+            />
+            <ModalComment
+                isVisible={this.state.isVisibleComment}
+                cancelAction={()=>this.cancelAction()}
+                publishAction={()=>this.publishAction()}
+                UID={this.state.uid}
+                postID={this.state.postID}
+                comments={this.state.comments}
             />
             <div className="userInfo">
                 <div className="photo">
@@ -181,7 +229,7 @@ export class Dashboard extends React.Component {
                                 like={post.liked}
                                 likeAction={()=>this.likeAction(post.id)}
                                 numberLikes={post.likesNumbers}
-                                commentAction={()=>alert("Comment")}
+                                commentAction={()=>this.commentAction(post.id)}
                                 numberComments={post.commentNumbers}
                                 picture={post.picture}
                             />
