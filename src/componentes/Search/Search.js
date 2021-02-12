@@ -4,13 +4,16 @@ import React, { useState } from 'react'
 import './Search.scss';
 
 
-const Search = ({ dataUsers, setDataUsers, dataIn, setDataIn }) => {
+const Search = ({ dataUsers, setDataUsers, readUsers }) => {
 
     const handleInputChange = (e) => {
         let a = e.target.value;
         if (a.length > 5) {
-            setDataIn(a)
-            filterData(dataIn)
+            // setDataIn(a)
+            filterData(a)
+        }
+        else if (a.length === 0) {
+            readUsers();
         }
     };
 

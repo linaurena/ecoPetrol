@@ -15,7 +15,7 @@ import firestore from '../../controller/firestore';
 const Directory = () => {
     const [dataUsers, setDataUsers] = useState([]);
 
-    const [dataIn, setDataIn] = useState("");
+    // const [dataIn, setDataIn] = useState("");
 
     const readUsers = () => {
         firestore.getUsers((listUsers) => {
@@ -37,8 +37,9 @@ const Directory = () => {
                 <Search
                  dataUsers = {dataUsers}
                  setDataUsers = {setDataUsers}
-                 dataIn={dataIn}
-                 setDataIn={setDataIn}
+                //  dataIn={dataIn}
+                //  setDataIn={setDataIn}
+                 readUsers={readUsers}
                  />
             </div>
 
