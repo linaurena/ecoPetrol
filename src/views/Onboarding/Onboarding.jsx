@@ -8,6 +8,7 @@ const Onboarding = ()=>{
     <div className={`${Style.onboardingContainer}`} id='section1'>
       <div className={`${Style.infoContainer}`}>
         <h1 className={`${Style.title}`}>Bachilleres Ecopetrol</h1>
+        <p>Ex Bachilleres por Colombia</p>
         <p className={`${Style.description}`}>Conecta con  estudiantes activos, egresados del programa y comparte tus logros.</p>
       </div>
       <div className={`${Style.onboardingBottom}`}>
