@@ -5,13 +5,14 @@ import { faArrowLeft, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import firebase from 'firebase';
 import { Redirect } from 'react-router-dom';
+
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          uid: "9oNLbuZCjTTZtt83OSaQ",
+          uid: "",
           redirect: false,
           image: null,
           status: "",
@@ -19,9 +20,14 @@ export default class Profile extends React.Component {
           ocupation: ""
         };
     }
+    
+     
 
     componentDidMount(){
-        firebase.firestore().collection("users").doc(this.state.uid).get()
+        let uid = localStorage.getItem('uid');
+        console.log(uid)
+        this.setState({uid: uid})
+        firebase.firestore().collection("users").doc(uid).get()
         .then((userData)=>{
             this.setState({
                 image: userData.data().photo,
