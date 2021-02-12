@@ -15,7 +15,7 @@ const Auth = () =>{
   function google (e) {
     e.preventDefault();
     authSocialMedia().then( () =>{
-      history.push('/perfil') /////// dashboard
+      history.push('/dashboard') /////// dashboard
     })
   }
 

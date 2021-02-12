@@ -6,6 +6,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons'
 import firebase from 'firebase';
 import image from '../../img/Karla.png';
 import { Redirect } from 'react-router-dom';
+
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
 export default class Profile extends React.Component {
@@ -20,6 +21,8 @@ export default class Profile extends React.Component {
           ocupation: ""
         };
     }
+    
+     
 
     componentDidMount(){
         firebase.firestore().collection("users").doc(this.state.uid).get()
