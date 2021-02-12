@@ -23,16 +23,21 @@ const LogInForm=({windowchoose, hash})=> {
 
   function sendData (e) {
     e.preventDefault();
-    choose[windowchoose](email, password)
-    .then( () =>{
-      history.push('/perfil')
-      })
-    .catch((e) => {
-      setError(e.message);
-      setTimeout(() => {
-        setError('')
-      }, 4000)
-    })
+    // choose[windowchoose](email, password)
+    // .then( () =>{
+    //   history.push('/dashboard')
+    //   })
+    // .catch((e) => {
+    //   setError(e.message);
+    //   setTimeout(() => {
+    //     setError('')
+    //   }, 4000)
+    // })
+
+    firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+      history.push('/dashboard');
+      console.log('logueado');
+    });
   }
 
   return (

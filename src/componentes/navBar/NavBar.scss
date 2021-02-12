@@ -8,9 +8,8 @@
         width: 100%;
     }
     ul {
-        // transform: translateY(-15px);
+        transform: translateX(15px);
         justify-content: space-around;
-        transform: translate(-20px, -15px);
         // text-align: center;
     }
     li {
@@ -47,16 +46,6 @@
   .fas::before{
         color: #403833;
         font-size: 30px;
-  }
-
-  .circulo {
-        background-color: burlywood;
-        border-radius: 50px;
-        width: 60px;
-        height: 60px;
-        position: relative;
-        bottom: 50px;
-        right: 700px;
   }
 
   .selected {
