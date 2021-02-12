@@ -15,6 +15,8 @@ import firestore from '../../controller/firestore';
 const Directory = () => {
     const [dataUsers, setDataUsers] = useState([]);
 
+    const [dataIn, setDataIn] = useState("");
+
     const readUsers = () => {
         firestore.getUsers((listUsers) => {
             setDataUsers(listUsers);
@@ -32,7 +34,12 @@ const Directory = () => {
                 <h2>Directorio</h2>
             </div>
             <div className="bar-head">
-                <Search />
+                <Search
+                 dataUsers = {dataUsers}
+                 setDataUsers = {setDataUsers}
+                 dataIn={dataIn}
+                 setDataIn={setDataIn}
+                 />
             </div>
 
             <div className="container-cards">

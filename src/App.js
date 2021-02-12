@@ -10,6 +10,7 @@ import { Dashboard } from "./views/dashboardView/dashboard.js";
 // Importando componentes
 import Directory from "./views/Directory/Directory";
 import NavBar from './componentes/navBar/NavBar'
+import Chat from "./views/chat/Chat.js";
 // import firebase from 'firebase/app'
 
 // var firebaseConfig = {
@@ -34,11 +35,11 @@ export default function App() {
           <Directory />
         </Route>
         <Route path="/dashboard">
-            <DashboardView />
+          <DashboardView />
         </Route>
         <Route path="/chat">
+          <Chat />
         </Route>
-
       </Switch>
       {/* </div> */}
     </Router>
@@ -55,8 +56,8 @@ export default function App() {
 function DashboardView() {
   return (
     <div>
-      <Dashboard/>
-      <NavBar/>
+      <Dashboard />
+      <NavBar />
     </div>
   );
 }
