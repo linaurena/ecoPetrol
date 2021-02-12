@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Router from './controller/Router';
+import {AuthContextProvider} from './controller/AuthContext';
+import './App.scss';
+//import Onboarding from "./views/Onboarding/LogInForm";
+//import { Dashboard } from "./views/dashboardView/dashboard.js";
+// Importando componentes
+//import Directory from "./views/Directory/Directory";
+// import firebase from 'firebase/app'
+
+// var firebaseConfig = {
+//   apiKey: "AIzaSyB97MFDk0wRoFav5TnoI6OOYdsWYmt7ZIQ",
+//   authDomain: "ecopetrol-tf.firebaseapp.com",
+//   projectId: "ecopetrol-tf",
+//   storageBucket: "ecopetrol-tf.appspot.com",
+//   messagingSenderId: "488819244820",
+//   appId: "1:488819244820:web:9e396db99bd0be01348c01"
+// };
+// Inicia Firebase
+// firebase.initializeApp(firebaseConfig);
+
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContextProvider>
+      <div>
+        <Router/>
+      </div>
+    </AuthContextProvider>
   );
 }
 
