@@ -9,7 +9,8 @@ import './App.scss';
 import { Dashboard } from "./views/dashboardView/dashboard.js";
 // Importando componentes
 import Directory from "./views/Directory/Directory";
-import NavBar from './componentes/navBar/NavBar'
+import NavBar from './componentes/navBar/NavBar';
+import Profile from './views/profileView/profile'
 // import firebase from 'firebase/app'
 
 // var firebaseConfig = {
@@ -30,6 +31,9 @@ export default function App() {
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
       <Switch>
+        <Route path="/profile">
+            <PerfilView />
+        </Route>
         <Route path="/directorio">
           <Directory />
         </Route>
@@ -53,6 +57,15 @@ export default function App() {
 //     < />
 //   );
 // }
+
+function PerfilView() {
+  return (
+    <div>
+      <Profile/>
+      <NavBar/>
+    </div>
+  );
+}
 
 function DashboardView() {
   return (
