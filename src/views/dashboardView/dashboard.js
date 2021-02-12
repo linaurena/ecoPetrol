@@ -1,13 +1,12 @@
 import React from "react";
 import './dashboard.scss';
-import image from '../../img/Karla.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import CardPost from '../../componentes/cardPostComponent/cardPost'
 import ModalPost from '../../componentes/modalPost/modalPost'
 import ModalComment from '../../componentes/modalComment/modalComment'
 import firebase from 'firebase';
-import {useHistory} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
 export class Dashboard extends React.Component {
@@ -20,13 +19,27 @@ export class Dashboard extends React.Component {
           uid: "9oNLbuZCjTTZtt83OSaQ",
           isVisibleComment: false,
           postID: false,
-          comments: []
+          comments: [],
+          image: null,
+          name: "",
+          lastname: "",
+          redirect: false
         };
 
         
     }
 
     componentDidMount(){
+        firebase.firestore().collection("users").doc(this.state.uid).get()
+        .then((userData)=>{
+            this.setState({
+                image: userData.data().photo,
+                status: userData.data().statusUser,
+                name: userData.data().name,
+                lastname: userData.data().lastName,
+                ocupation: userData.data().occupation
+            })
+        })
         this.getPost()
     }
 
@@ -182,6 +195,9 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
       return (
         <div className="mainDiv">
             <ModalPost
@@ -201,15 +217,15 @@ export class Dashboard extends React.Component {
             <div className="userInfo">
                 <div className="photo">
                     <div className="circleImg">
-                        <img src= {image} alt ="" className="userImg"/>
+                        <img src= {this.state.image} alt ="" className="userImg" onClick={()=>this.setState({redirect: '/perfil'})}/>
                     </div>
                 </div>
                 <div className="userName">
                     <div className="userFirstname">
-                        <p className="nameClass">Karla</p>
+                        <p className="nameClass">{this.state.name}</p>
                     </div>
                     <div className="userLastname">
-                        <p className="nameClass">Guaita</p>
+                        <p className="nameClass">{this.state.lastname}</p>
                     </div>
                 </div>
             </div>

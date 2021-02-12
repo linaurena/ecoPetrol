@@ -60,7 +60,7 @@
 
 .typePerfil{
     height: 20px;
-    width:100px;
+    width:120px;
     margin-top: -15px;
     background-color: #CCD32A;
     border-radius: 4px;
@@ -98,9 +98,91 @@
 }
 
 .boxButtonProfile{
-    height: 200px;
+    height: 160px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+.closeSession{
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.logoutText{
+    color: red;
+    font-size: 12px;
+}
+
+.rowTitle1{
+    margin-top: 40px;
+    height: 20px;
+    display: flex;
+}
+
+.rowTitle{
+    margin-top: 10px;
+    height: 25px;
+    display: flex;
+}
+
+.titleEdit{
+    color: #42403A;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.inputTextBox{
+    border-radius: 5px;
+    width: 80%;
+    margin-left: 20px;
+    background-color: #FBFBFB;
+}
+
+.buttonCommentProfile{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cancelButtonDivCommentProfile{
+    height: 100px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitButtonDivCommentProfile{
+    height: 100px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonCancelCommentProfile{
+    height: 40px;
+    font-size: 16px;
+    font-family: Helvetica;
+    border-radius: 10px;
+    color: white;
+    width: 120px;
+    background-color: #42403A;
+}
+
+.buttonPublishCommentProfile{
+    height: 40px;
+    font-size: 16px;
+    font-family: Helvetica;
+    border-radius: 10px;
+    color: white;
+    width: 120px;
+    background-color: #42403A;
 }

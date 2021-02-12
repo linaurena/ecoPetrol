@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import firebase from 'firebase';
-import image from '../../img/Karla.png';
 import { Redirect } from 'react-router-dom';
 var moment = require('moment'); // Libreria para el manejo del tiempo
 
@@ -34,11 +33,11 @@ export default class Profile extends React.Component {
     }
 
     backAction(){
-        this.context.router.history.goBack()
+        this.setState({redirect: '/dashboard'})
     }
 
     goEditPerfil(){
-
+        this.setState({redirect: '/editPerfil'})
     }
 
     render() {
@@ -74,6 +73,9 @@ export default class Profile extends React.Component {
                     Editar Perfil
                     <FontAwesomeIcon icon={faPen} className="iconPen"/>
                 </button>
+            </div>
+            <div className="closeSession">
+                <p className="logoutText" onClick={()=>{this.setState({redirect: '/'})}}>Cerrar sesión</p>
             </div>
         </div>
       )

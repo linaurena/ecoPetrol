@@ -5,6 +5,7 @@ import UserProfile from '../views/UserProfile/UserProfile';
 import Directory from "../views/Directory/Directory";
 import NavBar from '../componentes/navBar/NavBar';
 import Profile from '../views/profileView/profile';
+import EditProfile from '../views/profileView/editProfile';
 import { Dashboard } from "../views/dashboardView/dashboard.js";
 import Chat from "../views/chat/Chat.js";
 // import Error404 from '../views/Error404';
@@ -20,6 +21,7 @@ const Router = () => {
           <Route exact path='/dashboard' component={DashboardView}/>
           <Route exact path='/directorio' component={Directory}/>
           <Route exact path='/chat' component={Chat}/>
+          <Route exact path='/editPerfil' component={EditPerfilView}/>
         </Switch>
       </BrowserRouter>
     )
@@ -39,6 +41,14 @@ function ProfileView() {
     <div>
       <Profile/>
       <NavBar/>
+    </div>
+  )
+}
+
+function EditPerfilView() {
+  return (
+    <div>
+      <EditProfile/>
     </div>
   )
 }
