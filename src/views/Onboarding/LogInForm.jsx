@@ -34,8 +34,11 @@ const LogInForm=({windowchoose, hash})=> {
     //   }, 4000)
     // })
 
-    firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+    firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
+      localStorage.setItem('uid', user.user.uid);
       history.push('/dashboard');
+      //console.log(user.user.uid)
+      
       console.log('logueado');
     });
   }

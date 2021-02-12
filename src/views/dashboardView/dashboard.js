@@ -16,7 +16,7 @@ export class Dashboard extends React.Component {
           redirect: false,
           isVisible: false,
           post: [],
-          uid: "9oNLbuZCjTTZtt83OSaQ",
+          uid: "",
           isVisibleComment: false,
           postID: false,
           comments: [],
@@ -30,7 +30,10 @@ export class Dashboard extends React.Component {
     }
 
     componentDidMount(){
-        firebase.firestore().collection("users").doc(this.state.uid).get()
+        let uid = localStorage.getItem('uid');
+        console.log(uid)
+        this.setState({uid: uid})
+        firebase.firestore().collection("users").doc(uid).get()
         .then((userData)=>{
             this.setState({
                 image: userData.data().photo,

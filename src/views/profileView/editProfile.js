@@ -11,7 +11,7 @@ export default class EditProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          uid: "9oNLbuZCjTTZtt83OSaQ",
+          uid: "",
           redirect: false,
           image: null,
           status: "",
@@ -30,7 +30,10 @@ export default class EditProfile extends React.Component {
     }
 
     componentDidMount(){
-        firebase.firestore().collection("users").doc(this.state.uid).get()
+        let uid = localStorage.getItem('uid');
+        console.log(uid)
+        this.setState({uid: uid})
+        firebase.firestore().collection("users").doc(uid).get()
         .then((userData)=>{
             this.setState({
                 image: userData.data().photo,
