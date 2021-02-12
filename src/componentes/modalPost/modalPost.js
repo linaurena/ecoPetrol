@@ -58,7 +58,7 @@ function ModalPost(props) {
                 picture: null,
                 likes: [],
                 comments: [],
-                user: "9oNLbuZCjTTZtt83OSaQ"
+                user: props.UID
             }).then((response)=>{
                 props.publishAction()
             })
@@ -88,7 +88,7 @@ function ModalPost(props) {
                             picture: url,
                             likes: [],
                             comments: [],
-                            user: "9oNLbuZCjTTZtt83OSaQ"
+                            user: props.UID
                         }).then((response)=>{
                             props.publishAction()
                         })
